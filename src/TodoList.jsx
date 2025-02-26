@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { List, Box, Typography, Tabs, Tab, TextField, Button } from '@mui/material';
+import { List, Box, Typography, Tabs, Tab, TextField, Button, IconButton } from '@mui/material';
+import CloseIcon from "@mui/icons-material/Close";
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
 
@@ -21,7 +22,7 @@ export default function TodoList() {
     const addTodo = (text) => {
         setTodoLists(prevLists  => ({
             ...prevLists,
-            [currentList]: [...prevLists[currentList], { id: crypto.randomUUID(), name: text, completed: false }]
+            [currentList]: [...(prevLists[currentList] || []), { id: crypto.randomUUID(), name: text, completed: false }]
         }))
     }
 
@@ -58,7 +59,24 @@ export default function TodoList() {
         }
     };
 
+    const deleteList = (listName) => {
+        setTodoLists(prevLists => {
+            const updatedLists = { ...prevLists };
+            delete updatedLists[listName];
     
+            const remainingLists = Object.keys(updatedLists);
+            setCurrentList(remainingLists[0] || ""); // Update immediately
+    
+            return updatedLists;
+        });
+    };
+
+    useEffect(() => {
+        const remainingLists = Object.keys(todoLists);
+        if (!remainingLists.includes(currentList)) {
+            setCurrentList(remainingLists[0] || ""); // Switch to first list or reset
+        }
+    }, [todoLists, currentList]);
 
     return (
         <Box sx={{display:"flex", justifyContent: "center", alignItems:"center", flexDirection:"column", marginTop:"50px"}}>
@@ -66,12 +84,27 @@ export default function TodoList() {
                 To Do List
             </Typography>
 
-            <Tabs value={currentList} onChange={(e, newValue) => setCurrentList(newValue)}>
-                {Object.keys(todoLists).map(list => (
-                    <Tab key={list} label={list} value={list} />
-                ))}
-            </Tabs>
-
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: "90vw", overflowX: "auto" }}>
+                <Tabs
+                    value={Object.keys(todoLists).includes(currentList) ? currentList : false} 
+                    onChange={(e, newValue) => setCurrentList(newValue)}
+                    variant="scrollable"
+                    scrollButtons="auto"
+                    sx={{ width: "100%" }}
+                >
+                    {Object.keys(todoLists).map(list => (
+                        <Tab key={list} value={list} label={
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                        {list} 
+                            <CloseIcon sx={{ marginLeft:"15px" }} fontSize="small" color="error" onClick={(e) => { 
+                            e.stopPropagation(); // Prevent tab switch when clicking delete
+                            deleteList(list); 
+                            }} />
+                    </Box>} />
+                    ))}
+                </Tabs>
+            </Box>
+            
             <Box sx={{ display: "flex", marginTop: "10px" }}>
                 <TextField
                     label="New List Name"
@@ -91,7 +124,7 @@ export default function TodoList() {
                     key={todo.id} 
                     remove={removeTodo} 
                     toggle={() => toggleTodo(todo.id)}
-                    editTodo={editTodo}
+                    edit={editTodo}
                     />
                 ))}
                 <TodoForm addTodo={addTodo}/>

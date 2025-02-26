@@ -1,0 +1,17 @@
+.css-1wxkzlj-MuiTabs-flexContainer {
+    justify-content: center;
+}
+
+.css-kqreao {
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+}
+
+@media ( max-width: 768px ) {
+    .css-1wxkzlj-MuiTabs-flexContainer {
+        justify-content: start;
+    }
+}

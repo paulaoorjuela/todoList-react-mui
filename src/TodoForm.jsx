@@ -5,25 +5,24 @@ import { useState } from "react";
 
 export default function TodoForm({addTodo}) {
     const [text, setText] = useState("");
-    const handleChange = (e) => {
-        setText(e.target.value);
-    };
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        addTodo(text)
-        setText("")
+        if (text.trim()) {
+            addTodo(text);
+            setText("");
+        }
     }
 
     return (
         <ListItem>
             <form onSubmit={handleSubmit}>
             <TextField
-                fullWidth
                 id="outlined-basic"
                 label="Add Todo"
                 variant="outlined"
                 value={text}
-                onChange={handleChange}
+                onChange={(e) => setText(e.target.value)}
                 slotProps={{
                     input: {
                     endAdornment: <InputAdornment position="end">
