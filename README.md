@@ -1,8 +1,42 @@
-# React + Vite
+# Todo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + Material UI todo list app where users can:
+✅ Create multiple todo lists (e.g., Work, Home, Projects).
+✅ Add, edit, and delete todos in each list.
+✅ Switch between lists using a tab navigation.
+✅ Delete entire lists with a single click.
+✅ Scroll through lists when there are too many.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- **Multiple Lists:** Create separate lists for different categories.
+- **Persistent Storage:** Data is saved in `localStorage`.
+- **Edit Todos:** Click a todo to edit it.
+- **Delete Todos:** Remove individual todos or entire lists.
+- **Responsive & Scrollable Tabs:** Tabs scroll when there are too many lists.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Installation & Setup
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/todo-list-app.git
+    cd todoList
+
+2. Install dependencies:
+    ```bash
+    npm install
+
+3. Start the development server:
+    ```bash
+    npm run dev
+
+Open `http://localhost:5173` in your browser.
+
+## 🔧 Technologies Used
+**React** – Component-based UI.
+**Material UI** – Stylish components (`Tabs`, `Button`, `IconButton`, etc.).
+**localStorage** – Stores lists and todos persistently.
+
+
+## 🛠️ Future Improvements
+🔹 Drag and drop reordering of todos.
+🔹 Due date & reminders for tasks.
+🔹 Dark mode.

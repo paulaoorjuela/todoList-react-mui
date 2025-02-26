@@ -6,8 +6,12 @@
     margin-bottom: 20px;
 }
 
-form {
+form > .css-1xp5r68-MuiFormControl-root-MuiTextField-root {
     width: 100%;
+}
+
+.css-elo8k2-MuiInputAdornment-root {
+    margin-left: 78px !important;
 }
 
 @media ( max-width: 768px ) {
