@@ -1,11 +1,11 @@
 # Todo List App
 
 A simple React + Material UI todo list app where users can:
-✅ Create multiple todo lists (e.g., Work, Home, Projects).
-✅ Add, edit, and delete todos in each list.
-✅ Switch between lists using a tab navigation.
-✅ Delete entire lists with a single click.
-✅ Update a List name with double click or hold(phone).
+- ✅ Create multiple todo lists (e.g., Work, Home, Projects).
+- ✅ Add, edit, and delete todos in each list.
+- ✅ Switch between lists using a tab navigation.
+- ✅ Delete entire lists with a single click.
+- ✅ Update a List name with double click or hold(phone).
 
 ## 🚀 Features
 - **Multiple Lists:** Create separate lists for different categories.
