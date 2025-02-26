@@ -31,9 +31,9 @@ A simple React + Material UI todo list app where users can:
 Open `http://localhost:5173` in your browser.
 
 ## 🔧 Technologies Used
-**React** – Component-based UI.
-**Material UI** – Stylish components (`Tabs`, `Button`, `IconButton`, etc.).
-**localStorage** – Stores lists and todos persistently.
+- **React** – Component-based UI.
+- **Material UI** – Stylish components (`Tabs`, `Button`, `IconButton`, etc.).
+- **localStorage** – Stores lists and todos persistently.
 
 
 ## 🛠️ Future Improvements
