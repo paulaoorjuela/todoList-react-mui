@@ -5,7 +5,7 @@ A simple React + Material UI todo list app where users can:
 ✅ Add, edit, and delete todos in each list.
 ✅ Switch between lists using a tab navigation.
 ✅ Delete entire lists with a single click.
-✅ Scroll through lists when there are too many.
+✅ Update a List name with double click or hold(phone).
 
 ## 🚀 Features
 - **Multiple Lists:** Create separate lists for different categories.
